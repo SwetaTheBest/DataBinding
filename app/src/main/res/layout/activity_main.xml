@@ -37,7 +37,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:text="@{product.numberRatingsString}"
+                    android:text=""
                     android:textColor="@color/DarkGrey"
                     android:textSize="14sp" />
 
@@ -99,7 +99,7 @@
                     android:id="@+id/price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{product.price}"
+                    android:text=""
                     android:textColor="@color/red2"
                     android:textSize="16sp" />
 
@@ -110,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:background="@drawable/strike_through"
-                    android:text="@{product.sale_price}"
+                    android:text=""
                     tools:text = "abcd"
                     android:textColor="@color/DarkGrey"
                     android:textSize="14sp" />
