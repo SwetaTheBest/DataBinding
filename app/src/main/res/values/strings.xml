@@ -7,4 +7,5 @@
 
     <!-- Strings -->
     <string name="dialog_quantity_title">Qty: </string>
+    <string name="add_to_cart">Add to Cart</string>
 </resources>
