@@ -12,7 +12,7 @@ import com.swetajain.databinding.utils.Products;
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding activityMainBinding ;
-    private Product mProduct;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,9 +20,10 @@ public class MainActivity extends AppCompatActivity {
         activityMainBinding = DataBindingUtil.setContentView(this,R.layout.activity_main);
 
         Products products = new Products();
-        mProduct = products.PRODUCTS[0];
+        Product product;
+        product = products.PRODUCTS[0];
 
-        activityMainBinding.setProduct(mProduct);
+        activityMainBinding.setProduct(product);
 
 
     }

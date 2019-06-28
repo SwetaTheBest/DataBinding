@@ -5,6 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="com.swetajain.databinding.utils.StringUtil" />
+        <import type="com.swetajain.databinding.utils.BigDecimalUtil" />
+        <import type="android.view.View" />
+
         <variable
             name="product"
             type="com.swetajain.databinding.models.Product" />
@@ -37,7 +41,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:text=""
+                    android:text="@{StringUtil.convertIntToString(product.num_ratings)}"
                     android:textColor="@color/DarkGrey"
                     android:textSize="14sp" />
 
@@ -52,7 +56,7 @@
                     android:layout_toStartOf="@+id/num_ratings"
                     android:isIndicator="true"
                     android:numStars="5"
-                    android:rating="4"
+                    android:rating="@{product.rating.floatValue()}"
                     android:scaleX="1.2"
                     android:scaleY="1.2"
                     android:theme="@style/RatingBar" />
@@ -76,11 +80,12 @@
 
                 <ImageView
                     android:id="@+id/image"
+                    android:src="@{product.image}"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
-                    android:scaleType="fitCenter" />
+                    android:scaleType="centerCrop" />
 
             </RelativeLayout>
 
@@ -93,13 +98,14 @@
                 <ImageView
                     android:layout_width="14sp"
                     android:layout_height="14sp"
-                    android:src="@drawable/ic_launcher_foreground" />
+                    android:src="@drawable/ic_dollor_sign_red"
+                    />
 
                 <TextView
                     android:id="@+id/price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
+                    android:text="@{product.hasSalePrice() ? BigDecimalUtil.getValue(product.sale_price) : BigDecimalUtil.getValue(product.price)}"
                     android:textColor="@color/red2"
                     android:textSize="16sp" />
 
@@ -107,13 +113,13 @@
                 <TextView
                     android:id="@+id/original_price"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="21dp"
                     android:layout_marginStart="10dp"
                     android:background="@drawable/strike_through"
-                    android:text=""
-                    tools:text = "abcd"
+                    android:text="@{BigDecimalUtil.getValue(product.price)}"
                     android:textColor="@color/DarkGrey"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:visibility="@{product.hasSalePrice() ? View.VISIBLE : View.INVISIBLE}" />
 
             </LinearLayout>
 
